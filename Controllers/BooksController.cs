@@ -16,7 +16,7 @@ namespace LMS.Controllers
             _context = context;
         }
 
-        // List all books
+       
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -24,7 +24,7 @@ namespace LMS.Controllers
             return View(books);
         }
 
-        // Add a book
+       
         [HttpGet]
         public IActionResult Add()
         {
@@ -43,7 +43,7 @@ namespace LMS.Controllers
             return View(book);
         }
 
-        // Edit a book
+       
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -66,7 +66,7 @@ namespace LMS.Controllers
                     return NotFound();
                 }
 
-                // Update the properties of the existing book
+                
                 existingBook.Title = book.Title;
                 existingBook.Author = book.Author;
                 existingBook.Genre = book.Genre;
@@ -80,7 +80,7 @@ namespace LMS.Controllers
         }
 
 
-        // Delete a book
+      
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -95,7 +95,7 @@ namespace LMS.Controllers
             return RedirectToAction("Index");
         }
 
-        // Search for a book
+       
         [HttpGet]
         public async Task<IActionResult> Search(string searchTerm)
         {
@@ -116,7 +116,7 @@ namespace LMS.Controllers
       .Where(b => b.AvailableCopies > 0)
       .ToListAsync();
 
-            // Pass the available books to the view using ViewBag or ViewModel
+            
             ViewBag.AvailableBooks = new SelectList(availableBooks, "BookId", "Title");
 
             return View();
@@ -127,8 +127,8 @@ namespace LMS.Controllers
         {
 
             var issuedBooks = await _context.IssuedBooks
-                .Include(ib => ib.Book) // Include book details for display
-                .Where(ib => ib.ReturnDate == null) // Only show books that are not returned
+                .Include(ib => ib.Book) 
+                .Where(ib => ib.ReturnDate == null) 
                 .ToListAsync();
 
             return View(issuedBooks);
@@ -163,12 +163,12 @@ namespace LMS.Controllers
         public async Task<IActionResult> Return()
         {
             var issuedBooks = await _context.IssuedBooks
-                .Include(ib => ib.Book) // Include book details for display
-                .Where(ib => ib.ReturnDate == null) // Only show books that are not returned
+                .Include(ib => ib.Book)
+                .Where(ib => ib.ReturnDate == null) 
                 .ToListAsync();
             return View(issuedBooks);
         }
-        // Return a book
+       
         [HttpPost]
         public async Task<IActionResult> Return(int id)
         {
