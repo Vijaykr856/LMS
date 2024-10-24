@@ -1,0 +1,21 @@
+﻿@model IssuedBook
+
+<h2>Issue Book</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>Select Book</label>
+        <select asp-for="BookId" class="form-control" asp-items="ViewBag.AvailableBooks">
+            <option value="">-- Select a Book --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Issued To</label>
+        <input asp-for="IssuedTo" class="form-control" />
+    </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary">Issue Book</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+

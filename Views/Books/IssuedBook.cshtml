@@ -1,0 +1,28 @@
+﻿@model IEnumerable<IssuedBook>
+
+<h2>Issued Books List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Issued To</th>
+            <th>Issue Date</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var issuedBook in Model)
+        {
+            <tr>
+                <td>@issuedBook.Book.Title</td>
+                <td>@issuedBook.Book.Author</td>
+                <td>@issuedBook.IssuedTo</td>
+                <td>@issuedBook.IssueDate.ToShortDateString()</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-secondary">All Book/ HomePage</a>

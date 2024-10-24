@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IssuedBook>
+
+<h2>Issued Books List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Issued To</th>
+            <th>Issue Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var issuedBook in Model)
+        {
+            <tr>
+                <td>@issuedBook.Book.Title</td>
+                <td>@issuedBook.Book.Author</td>
+                <td>@issuedBook.IssuedTo</td>
+                <td>@issuedBook.IssueDate.ToShortDateString()</td>
+                <td>
+                    <!-- Button to Return the Book -->
+                    <form method="post" action="/Books/return/@issuedBook.IssuedBookId" style="display:inline;">
+                        <button type="submit" class="btn btn-success">Return Book</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-secondary">All Book/ HomePage</a>

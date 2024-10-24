@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Book>
+
+<h2>Search Books</h2>
+
+<form method="get" action="/books/search" class="m-2">
+    <div class="form-group">
+        <input type="text" name="searchTerm" placeholder="Search by title or author" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<h3>Search Results</h3>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Total Copies</th>
+                <th>Available Copies</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Genre</td>
+                    <td>@book.TotalCopies</td>
+                    <td>@book.AvailableCopies</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books found matching the search criteria.</p>
+}
+
