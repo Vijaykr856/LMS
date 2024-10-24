@@ -1,5 +1,94 @@
 ﻿@model IEnumerable<Book>
 
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        padding: 30px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .search-form {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #006699;
+        box-shadow: 0 0 5px rgba(0, 102, 153, 0.2);
+    }
+
+    .btn-primary {
+        background-color: #006699;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn-primary:hover {
+        background-color: #005580;
+    }
+
+    h3 {
+        margin-top: 30px;
+        color: #333;
+    }
+
+    .search-results-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: white;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #006699;
+        color: white;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e0f7fa;
+    }
+
+    p {
+        text-align: center;
+        color: #555;
+        font-size: 16px;
+    }
+</style>
+
+
 <h2>Search Books</h2>
 
 <form method="get" action="/books/search" class="m-2">

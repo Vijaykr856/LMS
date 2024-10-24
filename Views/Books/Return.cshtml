@@ -1,5 +1,89 @@
 ﻿@model IEnumerable<IssuedBook>
 
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        padding: 30px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .issued-books-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: white;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #006699;
+        color: white;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e0f7fa;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .mt-3 {
+        margin-top: 1rem;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #ddd;
+        }
+
+    .thead-dark th {
+        background-color: #343a40;
+        color: white;
+    }
+</style>
+
 <h2>Issued Books List</h2>
 
 <table class="table">
@@ -21,7 +105,7 @@
                 <td>@issuedBook.IssuedTo</td>
                 <td>@issuedBook.IssueDate.ToShortDateString()</td>
                 <td>
-                    <!-- Button to Return the Book -->
+                    
                     <form method="post" action="/Books/return/@issuedBook.IssuedBookId" style="display:inline;">
                         <button type="submit" class="btn btn-success">Return Book</button>
                     </form>

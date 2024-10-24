@@ -1,5 +1,94 @@
 ﻿@model IEnumerable<Book>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #006699;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+    .btn-info {
+        background-color: #5bc0de;
+        color: white;
+        border: none;
+    }
+
+        .btn-info:hover {
+            background-color: #31b0d5;
+        }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+    }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+        }
+
+    .btn-success {
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background-color: #4cae4c;
+        }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #ddd;
+        }
+
+    .thead-dark th {
+        background-color: #343a40;
+        color: white;
+    }
+
+    .btn-add-book {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+        .btn-add-book:hover {
+            background-color: #218838;
+        }
+</style>
+
 <h1>Books</h1>
 
 <table class="table">
@@ -33,4 +122,4 @@
     </tbody>
 </table>
 
-<a href="/books/add">Add New Book</a>
+<a href="/books/add" class="btn btn-add-book mt-3">Add New Book</a>
